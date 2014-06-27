@@ -1,0 +1,15 @@
+{
+    "name": "spring-boot-poc",
+    "version": "0.0.1-SNAPSHOT",
+    "authors": [
+        "Víctor Ramírez <victor.ramirez@gmail.com>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "grunt": "^0.4",
+        "grunt-contrib-clean": "^0.5",
+        "grunt-contrib-jshint": "^0.10",
+        "grunt-contrib-uglify": "^0.5"
+    }
+}
