@@ -1,0 +1,48 @@
+version = '0.0.1'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'groovy'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileGroovy {
+    groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }
+}
+
+compileTestGroovy {
+    groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+    compile 'org.eclipse.jetty:jetty-webapp:9.2.+'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'com.h2database:h2:1.4.178'
+    compile 'org.codehaus.groovy:groovy:2.3.+:indy'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.7'
+}
+
