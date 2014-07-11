@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.1.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE")
     }
 }
 
@@ -43,6 +43,6 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.7'
+    gradleVersion = '2.0'
 }
 
