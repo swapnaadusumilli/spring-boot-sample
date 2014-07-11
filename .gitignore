@@ -3,3 +3,5 @@ gradle/
 .gradle/
 node_modules/
 *.iml
+src/main/webapp/jslib/
+build/
