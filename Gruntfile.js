@@ -10,41 +10,27 @@ module.exports = function(grunt) {
         jshint: {
             files: [
                 'Gruntfile.js',
-                '<%= srcDir %>/trenurbanoapp-schedule.js',
-                '<%= srcDir %>/trenurbanoapp-map.js'
+                '<%= srcDir %>/home-controller.js',
+                '<%= srcDir %>/app.js'
             ],
             options: {
                 multistr: true
             }
         },
         concat: {
-            schedule: {
+            app: {
                 src: [
-                    '<%= depsDir %>/fastclick/lib/fastclick.js',
-                    '<%= depsDir %>/momentjs/moment.js',
-                    '<%= depsDir %>/mustache/mustache.min.js',
-                    '<%= srcDir %>/trenurbanoapp-util.js',
-                    '<%= srcDir %>/trenurbanoapp-schedule.js'
+                    '<%= srcDir %>/home-controller.js',
+                    '<%= srcDir %>/app.js'
                 ],
-                dest: '<%= srcDir %>/trenurbanoapp-schedule.concat.js'
-            },
-            map: {
-                src: [
-                    '<%= srcDir %>/trenurbanoapp-util.js',
-                    '<%= srcDir %>/trenurbanoapp-map.js'
-                ],
-                dest: '<%= srcDir %>/trenurbanoapp-map.concat.js'
+                dest: '<%= srcDir %>/app.concat.js'
             }
-
         },
         uglify: {
             build: {
                 files: [{
-                    src: '<%= srcDir %>/trenurbanoapp-schedule.concat.js',
-                    dest: '<%= srcDir %>/tusched.min.js'
-                },{
-                    src: '<%= srcDir %>/trenurbanoapp-map.concat.js',
-                    dest: '<%= srcDir %>/tumap.min.js'
+                    src: '<%= srcDir %>/app.concat.js',
+                    dest: '<%= srcDir %>/app.min.js'
                 }]
             }
         }
