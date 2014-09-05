@@ -10,21 +10,21 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'spring-boot'
 apply plugin: 'groovy'
+apply plugin: 'spring-boot'
 apply plugin: 'war'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-compileGroovy {
-    groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }
+def groovyOptsClosure = {
+    groovyOptions.metaClass.optionMap = {
+        [indy: true, encoding: "UTF-8"]
+    }
 }
 
-compileTestGroovy {
-    groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }
-}
+compileGroovy(groovyOptsClosure)
+compileTestGroovy(groovyOptsClosure)
 
 repositories {
     mavenLocal()
@@ -40,6 +40,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'com.h2database:h2:1.4.178'
     compile 'org.codehaus.groovy:groovy:2.3.+:indy'
+    compile 'commons-daemon:commons-daemon:1.0.15'
 }
 
 task wrapper(type: Wrapper) {
